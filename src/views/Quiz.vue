@@ -77,12 +77,15 @@
         Awesome<br />
         Your Score is {{ Score }}/20
       </p>
-      <button
-        @click="startOver"
-        class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-      >
-        Start Over
-      </button>
+
+      <div class="mx-auto py-8 text-center">
+        <button
+          @click="startOver"
+          class="bg-indigo-900 hover:bg-white text-white font-semibold hover:text-indigo-900 py-2 px-4 border border-blue-500 hover:border-indigo-900 rounded"
+        >
+          Start Over
+        </button>
+      </div>
     </div>
   </div>
 </template>

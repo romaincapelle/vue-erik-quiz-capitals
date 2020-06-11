@@ -58,17 +58,17 @@
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm lg:flex-grow">
         <router-link
-          class="block mt-4 lg:inline-block lg:mt-0 text-gray-800 hover:text-white mr-4"
+          class="block mt-4 lg:inline-block lg:mt-0 text-gray-800  hover:text-gray-500  mr-4"
           to="/"
           >Home</router-link
         >
         <router-link
-          class="block mt-4 lg:inline-block lg:mt-0 text-gray-800 hover:text-white mr-4"
+          class="block mt-4 lg:inline-block lg:mt-0 text-gray-800  hover:text-gray-500 mr-4"
           to="/quiz"
           >Take the Quiz</router-link
         >
         <router-link
-          class="block mt-4 lg:inline-block lg:mt-0 text-gray-800 hover:text-white mr-4"
+          class="block mt-4 lg:inline-block lg:mt-0 text-gray-800  hover:text-gray-500 mr-4"
           to="/about"
         >
           List of all Capitals</router-link
@@ -76,7 +76,7 @@
       </div>
       <div>
         <a
-          href="https://romaincapelle.com"
+          href="https://github.com/romaincapelle/vue-erik-quiz-capitals"
           class="inline-block text-sm px-4 py-2 leading-none border rounded text-gray-800 border-gray-800 hover:border-indigo-800 hover:text-gray-200 hover:bg-gray-800 mt-4 lg:mt-0"
           >Github</a
         >
