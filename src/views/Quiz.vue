@@ -40,28 +40,28 @@
 
         <transition name="fade">
           <div
-            class="p-3 border border-white border-double bg-gray-100"
+            class="p-3 border border-white border-double  bg-teal-500"
             v-if="winningStrike >= 4"
             key="1"
           >
-            <p class="text-5xl text-center text-teal-500">
+            <p class="text-5xl text-center text-white">
               So Impressive !
             </p>
           </div>
 
           <div
-            class="p-3 border border-white border-double bg-gray-100"
+            class="p-3 border border-white border-double  bg-teal-400"
             v-else-if="winningStrike >= 2"
             key="2"
           >
-            <p class="text-5xl text-center text-teal-300">
+            <p class="text-5xl text-center text-white">
               Winning strike !
             </p>
           </div>
 
           <div v-else-if="winningStrike >= 1" key="3">
-            <div class="p-3 border border-white border-double bg-gray-100">
-              <p class="text-5xl text-center text-teal-300">
+            <div class="p-3 border border-white border-double bg-teal-300">
+              <p class="text-5xl text-center text-white">
                 Good
               </p>
             </div>
@@ -226,7 +226,7 @@ export default {
   box-shadow: #81e6d9 0px 0px 7px;
 }
 .fade-enter-active {
-  transition: opacity 0.5s;
+  transition: opacity 1.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
