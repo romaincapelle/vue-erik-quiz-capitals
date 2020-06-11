@@ -1,8 +1,9 @@
 <template>
   <div class="container mx-auto text-2xl py-8 max-w-xl">
-    <h1 class="py-8 text-center text-white text-4xl">
-      Quiz 20 Questions
+    <h1 class="py-3 text-center text-white text-4xl">
+      Quiz Questions
     </h1>
+    <h2 class="pb-2 text-center text-white text-4xl">{{ Index }}/20</h2>
     <transition name="fade">
       <div v-if="!gameFinished">
         <transition name="component-fade" mode="out-in">
@@ -19,6 +20,7 @@
         <Answers>
           <div>
             <div
+              :class="AnswerClass"
               class="text-white text-lg p-2 border border-white mb-3 hover:bg-white hover:text-indigo-900 cursor-pointer"
               v-for="answer in mixedUpAnswers"
               :key="answer"
@@ -31,8 +33,11 @@
         <div class="bg-black">
           <div class="progress-bar bg-teal-300" :style="progressBarStyle"></div>
         </div>
+        <div class="my-12 border border-white py-3">
+          <p class="text-base text-white text-center">Score</p>
+          <p class="text-white text-center">{{ Score }}</p>
+        </div>
 
-        <p class="text-white my-12">Score is {{ Score }}/{{ Index }}</p>
         <transition name="fade">
           <div
             class="p-3 border border-white border-double bg-gray-100"
@@ -67,15 +72,15 @@
     <div v-if="gameFinished" class="border bg-white">
       <p v-if="Score <= 10" class="text-red-700 my-12 p-5 text-center">
         Not so great<br />
-        Your Score is {{ Score }}/20
+        Your Score is {{ Score }}/{{ maxIndex }}
       </p>
       <p v-else-if="Score <= 15" class="text-white my-12">
         Pretty good<br />
-        Your Score is {{ Score }}/20
+        Your Score is {{ Score }}/{{ maxIndex }}
       </p>
       <p v-else class="text-white my-12">
         Awesome<br />
-        Your Score is {{ Score }}/20
+        Your Score is {{ Score }}/{{ maxIndex }}
       </p>
 
       <div class="mx-auto py-8 text-center">
@@ -101,6 +106,7 @@ export default {
       Capitals,
       Score: 0,
       Index: 0,
+      maxIndex: 20,
       loading: 0,
       wonThisQuestion: false,
       winningStrike: 0,
