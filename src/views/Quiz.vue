@@ -17,11 +17,6 @@
             </h3>
           </Question>
         </transition>
-        <div>
-          <p v-if="countDown > 4" class="text-white text-center">Timer</p>
-          <p v-else class="text-red-300 text-center">Hurry Up !</p>
-          <p class="text-white text-center">{{ countDown }}</p>
-        </div>
         <Answers>
           <div>
             <div
@@ -109,7 +104,6 @@ export default {
   data() {
     return {
       Capitals,
-      countDown: 10,
       Index: 0,
       maxIndex: 20,
       loading: 0,
@@ -127,17 +121,6 @@ export default {
     Answers
   },
   methods: {
-    countDownTimer() {
-      if (this.countDown > 0) {
-        setTimeout(() => {
-          this.countDown -= 1
-          this.countDownTimer()
-        }, 1000)
-      } else if (this.countDown === 0) {
-        this.countDown = 10
-        this.checkAnswer()
-      }
-    },
     shuffleArray(a) {
       for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1))
@@ -158,8 +141,6 @@ export default {
       }
     },
     newQuestion() {
-      this.countDown = 10
-      this.countDownTimer()
       this.Index++
       this.newWrongAnswer01()
       this.newWrongAnswer02()
@@ -231,6 +212,7 @@ export default {
   },
   created() {
     this.newQuestion()
+    this.countDownTimer()
   }
 }
 </script>
