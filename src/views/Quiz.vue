@@ -17,6 +17,11 @@
             </h3>
           </Question>
         </transition>
+        <div>
+          <p v-if="countDown > 4" class="text-white text-center">Timer</p>
+          <p v-else class="text-red-300 text-center">Hurry Up !</p>
+          <p class="text-white text-center">{{ countDown }}</p>
+        </div>
         <Answers>
           <div>
             <div
@@ -74,11 +79,11 @@
         Not so great<br />
         Your Score is {{ Score }}/{{ maxIndex }}
       </p>
-      <p v-else-if="Score <= 15" class="text-white my-12">
+      <p v-else-if="Score <= 15" class="text-gray-800 text-center my-12">
         Pretty good<br />
         Your Score is {{ Score }}/{{ maxIndex }}
       </p>
-      <p v-else class="text-white my-12">
+      <p v-else class="text-indigo-900 text-center my-12">
         Awesome<br />
         Your Score is {{ Score }}/{{ maxIndex }}
       </p>
@@ -104,7 +109,7 @@ export default {
   data() {
     return {
       Capitals,
-      Score: 0,
+      countDown: 10,
       Index: 0,
       maxIndex: 20,
       loading: 0,
@@ -122,6 +127,17 @@ export default {
     Answers
   },
   methods: {
+    countDownTimer() {
+      if (this.countDown > 0) {
+        setTimeout(() => {
+          this.countDown -= 1
+          this.countDownTimer()
+        }, 1000)
+      } else if (this.countDown === 0) {
+        this.countDown = 10
+        this.checkAnswer()
+      }
+    },
     shuffleArray(a) {
       for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1))
@@ -142,6 +158,8 @@ export default {
       }
     },
     newQuestion() {
+      this.countDown = 10
+      this.countDownTimer()
       this.Index++
       this.newWrongAnswer01()
       this.newWrongAnswer02()
@@ -178,6 +196,9 @@ export default {
     }
   },
   computed: {
+    Score() {
+      return this.$store.state.Score
+    },
     countCountries: function() {
       var countCountries = this.Capitals.length
       return countCountries

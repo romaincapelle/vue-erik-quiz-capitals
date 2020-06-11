@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: { flavor: 'Salted Caramel' },
+  state: { Score: 0 },
   mutations: {},
   actions: {},
   modules: {}
