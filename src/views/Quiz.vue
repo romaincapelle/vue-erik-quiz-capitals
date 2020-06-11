@@ -104,6 +104,7 @@ export default {
   data() {
     return {
       Capitals,
+      Score: 0,
       Index: 0,
       maxIndex: 20,
       loading: 0,
@@ -177,9 +178,6 @@ export default {
     }
   },
   computed: {
-    Score() {
-      return this.$store.state.Score
-    },
     countCountries: function() {
       var countCountries = this.Capitals.length
       return countCountries
